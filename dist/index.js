@@ -12,8 +12,8 @@ class Block {
 }
 Block.calculateBlockHash = (index, previousHash, data, timestamp) => CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
 const genesisBlock = new Block(0, "20202020", "", "Hello", 123456);
-const result = genesisBlock.calculateBlockHash();
-console.log(result);
 let blockchain = [genesisBlock];
-console.log(blockchain);
+const getBlockchain = () => blockchain;
+const getLatestBlock = () => getBlockchain[blockchain.length - 1];
+const getNewTimeStamp = () => Math.round(new Date().getTime() / 1000);
 //# sourceMappingURL=index.js.map
